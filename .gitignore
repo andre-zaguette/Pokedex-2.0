@@ -1,0 +1,14 @@
+node_modules
+.next
+dist
+.turbo
+.env*
+!.env.example
+coverage
+apps/api/generated
+.DS_Store
+
+# Agent Memory (Gandalf/Gemini CLI)
+.gemini/
+memory/
+*.log

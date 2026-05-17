@@ -1,0 +1,17 @@
+-- DropIndex
+DROP INDEX "UserPokemon_userId_pokeApiId_key";
+
+-- AlterTable
+ALTER TABLE "UserPokemon" ADD COLUMN     "ability" TEXT,
+ADD COLUMN     "ev_atk" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "ev_def" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "ev_hp" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "ev_spa" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "ev_spd" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "ev_spe" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "item" TEXT,
+ADD COLUMN     "move1" TEXT,
+ADD COLUMN     "move2" TEXT,
+ADD COLUMN     "move3" TEXT,
+ADD COLUMN     "move4" TEXT,
+ADD COLUMN     "nature" TEXT;
