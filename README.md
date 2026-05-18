@@ -1,78 +1,40 @@
-# Pokedex Monorepo
+# Pokedex Web (Frontend)
 
-Monorepo com:
+Frontend da Pokedex construído com Next.js (App Router), TypeScript e Framer Motion.
 
-- `apps/api`: backend em NestJS com autenticação JWT, Postgres e integração com a PokeAPI
-- `apps/web`: frontend em Next.js que consome o backend
+Este repositório contém apenas a aplicação frontend. O backend (API) está localizado em um repositório separado.
 
 ## Requisitos
 
 - Node.js 20+
 - npm 10+
-- Postgres 15+
 
-## Estrutura
+## Começando
 
-```text
-apps/
-  api/  -> NestJS + Prisma + JWT
-  web/  -> Next.js App Router
-```
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-## Fluxo principal
+2. Configure as variáveis de ambiente:
+   - Copie `.env.example` para `.env.local` e ajuste a URL da API se necessário.
 
-1. Usuário se cadastra ou faz login.
-2. O frontend salva o token JWT no navegador.
-3. O usuário pesquisa pokemons.
-4. O backend consulta a PokeAPI e normaliza os dados.
-5. O usuário marca quais pokemons possui, incluindo:
-   - se é shiny
-   - gênero (`male`, `female`, `unknown`)
-   - observação opcional
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
 
-## Banco de dados
+## Funcionalidades
 
-As entidades principais são:
+- Listagem de Pokemons com busca.
+- Detalhes do Pokemon.
+- Gerenciamento de Coleção (possuídos, shiny, gênero).
+- Autenticação de usuário.
 
-- `User`
-- `UserPokemon`
+## Tecnologias
 
-`UserPokemon` guarda o vínculo entre o usuário e o pokemon identificado pelo `pokeApiId`.
-
-## Variáveis de ambiente
-
-### Backend
-
-Copie `apps/api/.env.example` para `apps/api/.env`.
-
-### Frontend
-
-Copie `apps/web/.env.example` para `apps/web/.env.local`.
-
-## Scripts
-
-Na raiz:
-
-```bash
-npm install
-npm run dev:api
-npm run dev:web
-```
-
-No backend, depois de configurar o banco:
-
-```bash
-npm run prisma:generate --workspace api
-npm run prisma:migrate --workspace api
-```
-
-## Endpoints principais
-
-- `POST /auth/register`
-- `POST /auth/login`
-- `GET /pokemon?search=pika&limit=12`
-- `GET /pokemon/:id`
-- `GET /collection`
-- `POST /collection`
-- `PATCH /collection/:id`
-- `DELETE /collection/:id`
+- Next.js 15
+- React 19
+- Framer Motion (animações)
+- Tailwind CSS (via globals.css)
+- Jest / React Testing Library (testes)
