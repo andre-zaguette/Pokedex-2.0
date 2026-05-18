@@ -12,3 +12,4 @@ apps/api/generated
 .gemini/
 memory/
 *.log
+.env
