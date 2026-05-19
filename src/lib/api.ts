@@ -50,11 +50,11 @@ export const api = {
 
   searchPokemon: (search: string, offset = 0, region = '') =>
     request<{ total: number; items: PokemonSummary[]; hasMore: boolean }>(
-      `${NEST_URL}/pokemon?search=${encodeURIComponent(search)}&limit=12&offset=${offset}&region=${region}`,
+      `/api/pokemon?search=${encodeURIComponent(search)}&limit=12&offset=${offset}&region=${region}`,
     ),
 
   getPokemonDetail: (idOrName: string | number) =>
-    request<PokemonSummary>(`${NEST_URL}/pokemon/${idOrName}`),
+    request<PokemonSummary>(`/api/pokemon/${idOrName}`),
 
   getCollection: () =>
     request<CollectionEntry[]>('/api/collection'),

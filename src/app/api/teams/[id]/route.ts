@@ -12,7 +12,7 @@ export async function PATCH(
   if (!token) return UNAUTHORIZED;
 
   const body = await req.json();
-  const res = await nestFetch(`/collection/${id}`, token, {
+  const res = await nestFetch(`/teams/${id}`, token, {
     method: 'PATCH',
     body: JSON.stringify(body),
   });
@@ -28,7 +28,7 @@ export async function DELETE(
   const token = await getAuthToken();
   if (!token) return UNAUTHORIZED;
 
-  const res = await nestFetch(`/collection/${id}`, token, {
+  const res = await nestFetch(`/teams/${id}`, token, {
     method: 'DELETE',
   });
   const data = await res.json().catch(() => null);
